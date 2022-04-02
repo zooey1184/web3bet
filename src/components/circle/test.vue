@@ -1,0 +1,117 @@
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;title&gt;SolarySystem&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;canvas id="mycanvas" width="1000" height="1000" style="background: #000"&gt;&lt;/canvas&gt;
+	&lt;script&gt;
+		var cxt=document.getElementById("mycanvas").getContext("2d")
+		//行星运行轨道
+		function drawTrack(){
+			for(var i=0;i&lt;8;i++){
+				cxt.beginPath()
+			cxt.arc(500,500,(i+1)*50,0,2*Math.PI,false)
+			cxt.strokeStyle="#fff"
+			cxt.stroke()
+			cxt.closePath()
+			}	
+		}
+		drawTrack()
+
+		//模拟一个类
+		function Star(x,y,radius,cycle,sColor,eColor){
+			this.x=x
+			this.y=y 
+			this.radius=radius
+			this.cycle=cycle
+			this.sColor=sColor
+			this.eColor=eColor
+
+			this.color=null
+			this.time=0
+
+			this.draw=function(){
+				cxt.beginPath()
+				cxt.save()
+				cxt.translate(500,500)
+				cxt.rotate(this.time*360/this.cycle*Math.PI/180)
+				cxt.arc(this.x,this.y,this.radius,0,2*Math.PI,false)
+				this.color=cxt.createRadialGradient(this.x,this.y,0,this.x,this.y,this.radius)
+				this.color.addColorStop(0,this.sColor)
+				this.color.addColorStop(1,this.eColor)
+				cxt.fillStyle=this.color
+				cxt.fill()
+				cxt.restore()
+				cxt.closePath()
+				this.time+=1
+
+			}
+		}
+
+		//创建各个星球类，通过伪继承
+		function Sun(){
+			Star.call(this,0,0,20,0,"#f00","#f00")
+		}
+		function Mercury(){
+			Star.call(this,0,-50,10,88,"#A69888","#5c3666")
+		}
+		function Venus(){
+			Star.call(this,0,-100,10,225,"#C4BBAC","#1F1666")
+		}
+		function Earth(){
+			Star.call(this,0,-150,10,365,"#78b1eb","#050c12")
+		}
+		function Mars(){
+			Star.call(this,0,-200,10,687,"#cec999","#76422d")
+		}
+		function Jupiter(){
+			Star.call(this,0,-250,10,4333,"#c0a48e","#322222")
+		}
+		function Saturn(){
+			Star.call(this,0,-300,10,10766,"#f7f9e3","#1F1666")
+		}
+		function Uranus(){
+			Star.call(this,0,-350,10,30799,"#a7e1e8","#19243a")
+		}
+		function Neptune(){
+			Star.call(this,0,-400,10,60129,"#0661b2","#1e3b73")
+		}
+
+		//根据各个星球类创建实例对象
+		var sun=new Sun()
+		var mercury=new Mercury()
+		var venus=new Venus()
+		var earth=new Earth()
+		var mars=new Mars()
+		var jupiter=new Jupiter()
+		var saturn=new Saturn()
+		var uranus=new Uranus()
+		var neptune=new Neptune()
+
+		function move(){
+			cxt.clearRect(0,0,1000,1000)
+			drawTrack()
+			sun.draw()
+			mercury.draw()
+			venus.draw()
+			earth.draw()
+			mars.draw()
+			jupiter.draw()
+			saturn.draw()
+			uranus.draw()
+			neptune.draw()
+		}
+		//setInterval(move,10)
+		function anim(){
+			requestAnimationFrame(function(){
+				move()
+				anim()
+			})
+		}
+		anim()
+
+	&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
