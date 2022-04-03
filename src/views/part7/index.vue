@@ -4,8 +4,8 @@
       <img class="w-100p" src="../../assets/part7.png" alt="">
     </div>
     <div>
-      <div class="title-lg linear-color inline-block">代币经济学 多链技术和拓展</div>
-      <div class="mt-8 subTitle">Web3bet 正在扩展以将体育投注体验带到所有兼容的网络  Tokenomics</div>
+      <div class="title-lg linear-color inline-block">Token Economics    Multi-chain Technology and Scaling</div>
+      <!-- <div class="mt-8 subTitle">Web3bet 正在扩展以将体育投注体验带到所有兼容的网络  Tokenomics</div> -->
       <div class="flex mt-24">
         <div class="w-25p">
           <div class="gray-9d desc">Token Name</div>
@@ -31,8 +31,8 @@
             <img src="../../assets/part7-1.png" alt="">
           </div>
           <div class="ml-16">
-            <div class="gray">治理</div>
-            <div>持有BET代币以获得协议的投票权</div>
+            <div class="gray">Governance</div>
+            <div>Hold BET tokens to gain voting rights on the protocol</div>
           </div>
         </div>
         <div class="w-50p flex items-center">
@@ -40,15 +40,15 @@
             <img src="../../assets/part7-2.png" alt="">
           </div>
           <div class="ml-16">
-            <div class="gray">治理</div>
-            <div>持有BET代币以获得协议的投票权</div>
+            <div class="gray">Staking Reward</div>
+            <div>Earn 50% of the profit of the capital pool since staking BET tokens</div>
           </div>
         </div>
       </div>
 
       <div class="flex mt-48">
         <LinearBox>
-          <div class="primary font-size-14 px-48 py-8">更多信息</div>
+          <div class="primary font-size-14 px-48 py-8">More information</div>
         </LinearBox>
       </div>
     </div>

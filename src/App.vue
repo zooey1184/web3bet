@@ -1,28 +1,25 @@
 <template>
-  <div class="color-white bg">
-    <Navbar :isMobile='isMobile' />
-    <div class='bg gutter_x' style="margin-top: 60px;" ref='productRef'>
+  <div class="color-white bg" ref="wrapRef">
+    <Navbar :isMobile='isMobile' v-model:active='state.active' @change='handleChangeNav' />
+    <div class="bg gutter_x" style="margin-top: 60px">
       <Part1 />
     </div>
-    <div class='bg' ref='tokenRef'>
-      <div class="gutter_x">
-        <Part2 />
-        <Part3 />
-        <Part4 />
-        <Part5 />
-        <Part6 />
-      </div>
-      <div style='padding: 0 3%; margin-top: -4vh; box-sizing: border-box'>
-        <img src="./assets/filter-line.png" class="w-100p" alt="">
-      </div>
-      
-      
-      <div class="gutter_x">
-        <Part7 />
-        <Part8 />
-      </div>
+    <div class='bg gutter_x' ref='productRef'>
+      <Part2 />
+      <Part3 />
+      <Part4 />
+      <Part5 />
+      <Part6 />
     </div>
-    <div class='bg' ref='mapRef'></div>
+    <div style='padding: 0 3%; margin-top: -4vh; box-sizing: border-box'>
+      <img src="./assets/filter-line.png" class="w-100p" alt="">
+    </div>
+    <div class='bg gutter_x' ref='tokenRef'>
+      <Part7 />
+    </div>
+    <div class='bg gutter_x' ref='mapRef'>
+      <Part8 />
+    </div>
     <div class="bg" style="padding: 4vw 10vw">
       <Footer />
     </div>
@@ -30,7 +27,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, onMounted, provide } from 'vue'
+import { defineComponent, ref, onMounted, provide, reactive } from 'vue'
 import Circle from './components/circle'
 import Navbar from './components/nav'
 import Steps from './components/steps'
@@ -68,9 +65,13 @@ export default defineComponent({
   props: {},
   setup(props) {
     const isMobile = ref()
+    const wrapRef = ref()
     const productRef = ref()
     const tokenRef = ref()
     const mapRef = ref()
+    const state = reactive({
+      active: 'product'
+    })
 
     provide('isMobile', isMobile)
 
@@ -89,12 +90,16 @@ export default defineComponent({
     window.onscroll = throttleFn((e) => {
       const product = productRef.value?.getBoundingClientRect()
       const token = tokenRef.value?.getBoundingClientRect()
+      const map = mapRef.value?.getBoundingClientRect()
       if(product) {
         if (product.y + product.height > 80 &&  product.y + product.height <= product.height) {
-          console.log('product');
+          state.active = 'product'
         }
         if (token.y + token.height > 80 &&  token.y + token.height <= token.height) {
-          console.log('token');
+          state.active = 'token'
+        }
+        if (map.y + map.height > 80 &&  map.y + map.height <= map.height+200) {
+          state.active = 'map'
         }
       }
     }, 200)
@@ -106,6 +111,19 @@ export default defineComponent({
         isMobile.value = false
       }
     }
+
+    const handleChangeNav = (e) => {
+      const Top = document.documentElement.scrollTop;
+      const obj = {
+        product: productRef.value,
+        token: tokenRef.value,
+        map: mapRef.value
+      }
+      const item = obj[e].getBoundingClientRect()
+      window.scrollTo({top: item.y-80 + Top, behavior: 'smooth'})
+      state.active = e
+    }
+
     onMounted(() => {
       if(window.innerWidth <= MOBILE_WIDTH) {
         isMobile.value = true
@@ -113,10 +131,13 @@ export default defineComponent({
     })
 
     return {
+      wrapRef,
       productRef,
       tokenRef,
       mapRef,
-      isMobile
+      isMobile,
+      handleChangeNav,
+      state,
     }
   }
 })

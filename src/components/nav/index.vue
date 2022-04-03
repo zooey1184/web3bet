@@ -19,6 +19,9 @@
   <div v-else class="pc_nav bg">
     <div class="flex items-center">
       <div>
+        <!-- <div class="linear-bg" style="height: 43px">
+          <img style="height: 43px" src='../../assets/logo-black.png'/>
+        </div> -->
         <img style="height: 43px" src='../../assets/logo.png'/>
       </div>
       <div class="flex items-ceneter justify-between ml-40">
@@ -26,19 +29,16 @@
       </div>
     </div>
     <div class="flex items-center">
-      <LinearBox>
-        <div class="primary font-size-14 pc_btn_px">质押</div>
+      <LinearBox v-for='item in btnList' class=" ml-24">
+        <div class="primary pc_btn_px ">{{item.label}}</div>
       </LinearBox>
-      <LinearBox class="ml-24">
-        <div class="primary font-size-14 pc_btn_px">文档</div>
-      </LinearBox>
-      <div class="linear-bg font-size-14 ml-24 pc_btn_px" style="border-radius: 2px">启动应用</div>
+      <div class="linear-bg ml-24 pc_btn_px" style="border-radius: 2px">{{launch}}</div>
     </div>
   </div>
 </template>
 
 <script>
-import { defineComponent, onMounted, reactive, ref } from 'vue'
+import { defineComponent, onMounted, reactive, ref, watch } from 'vue'
 import More from './more-icon.vue'
 import LinearBox from '../linear-box'
 
@@ -52,15 +52,15 @@ export default defineComponent({
       type: Array,
       default: () => ([
         {
-          label: '产品',
+          label: 'Product',
           value: 'product'
         },
         {
-          label: '代币经济学',
+          label: 'Token economy',
           value: 'token'
         },
         {
-          label: '路线图',
+          label: 'Road Map',
           value: 'map'
         }
       ])
@@ -69,18 +69,48 @@ export default defineComponent({
       type: String,
       default: 'product'
     },
+    btnList: {
+      type: Array,
+      default: () => ([
+        {
+          label: 'Pledge Of Shares',
+          value: 'pledge'
+        },
+        {
+          label: 'Docs',
+          value: 'doc'
+        },
+      ]),
+      
+    },
+    launch: {
+      type: String,
+      default: 'Launch App'
+    },
     isMobile: Boolean
   },
   emits: ['change', 'update:active'],
-  setup(props) {
+  setup(props, {emit, expose}) {
     const isMobile = ref(false)
     const state = reactive({
       visible: false,
       active: props.active
     })
+    watch(() => props.active, (n) => {
+      state.active = n
+    })
+    watch(() => state.active, (n) => {
+      emit('update:active', n)
+    })
+
+    const handleClickMenuItem = (item) => {
+      emit('change', item)
+      emit('update:active', item)
+    }
     
     return {
-      state
+      state,
+      handleClickMenuItem
     }
   }
 })
@@ -134,12 +164,18 @@ export default defineComponent({
   }
 }
 .pc_btn_px {
-  padding: 8px 32px;
+  width: 125px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   @media (min-width: 1040px) and (max-width: 1560px) {
-    padding: 10px 48px;
+    width: 145px;
+    height: 42px;
   }
   @media (min-width: 1561px) {
-    padding: 12px 64px;
+    width: 175px;
+    height: 47px;
   }
 }
 </style>

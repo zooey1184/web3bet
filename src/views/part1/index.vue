@@ -2,10 +2,10 @@
   <div style="padding-top: 10vw; padding-bottom: 25vh" class="flex color-white justify-between">
     <img src="../../assets/part1-bg.png" class="bg_img" alt="">
     <div style="z-index: 9">
-      <div class="title-md">在区块链上实现去中心化体育投注</div>
+      <div class="title-md">The first Betweb3.0 sports betting platform to achieve decentralized </div>
       <div class="flex items-center title-md">
-        <div class="mr-8 title-md">第一个web3.0</div>
-        <div class="title-md linear-color">体育投注平台</div>
+        <div class="mr-8 title-md"></div>
+        <div class="title-md linear-color">sports betting on the blockchain</div>
       </div>
 
       <div style="margin-top: 4vw">
@@ -22,10 +22,7 @@
         <div class="link desc">and more</div>
       </div>
     </div>
-
-    <div class="bg-gray-30" style="width: 24.375vw; height: 16.5vw; margin-left: 6vw">
-
-    </div>
+    <img class='w-100p' style="width: 24vw; height: auto;" src="../../assets/part1-gif.gif" />
   </div>
 </template>
 

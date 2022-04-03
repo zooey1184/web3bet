@@ -3,16 +3,21 @@
     <div class="flex items-center">
       <img src="../../assets/footer-logo.png" alt="">
       <div class="right">
-        ©2021-嵌套-保留所有权利
+        ©2021 - Nesting - All Rights Reserved
       </div>
     </div>
     <div class="flex items-center">
-      <img src="../../assets/footer.png" alt="">
-      <div class="text">免责申明</div>
+      <div class="flex items-center">
+        <img class="icon" src="../../assets/icon-t.png" alt="">
+        <img class="icon" src="../../assets/icon-m.png" alt="">
+        <img class="icon" src="../../assets/icon-discord.png" alt="">
+        <img class="icon" src="../../assets/icon-g.png" alt="">
+      </div>
+      <div class="text">Disclaimers</div>
     </div>
   </div>
   <div style="margin-top: 26px" class="text-align-center gray-9 font-size-12">
-    过往表现并不预示未来业绩。对区块链资产的任何投资都涉及损失部分或全部投资的风险。您交易所的区块链资产的价值受市场和其他投资风险的影响。
+    indicative of future performance. Any investment in blockchain assets involves the risk of losing part or all of your investment. The value of your exchange’s blockchain assets is affected by market and other investment risks
   </div>
 </template>
 
@@ -39,6 +44,15 @@
   }
   @media (min-width: 1920px) {
     margin-left: 121px;
+  }
+}
+.icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 16px;
+  transition: all 150ms linear;
+  &:hover {
+    transform: scale(1.2);
   }
 }
 </style>

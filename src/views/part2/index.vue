@@ -1,8 +1,8 @@
 <template>
   <div class="color-white gutter_col">
-    <h2 class="title-lg linear-color text-align-center">在Web3 上创造新的体育投注体验</h2>
-    <p class="text-align-center mt-32 desc line-height-24">在web2的在线体育投注市场已经极具巨大与成熟。尽管如此，随着web3的到来，我们开始发现传统的在线体育投注平台存在诸多弊端</p>
-    <p class="text-align-center desc line-height-24">web3bet通过提供最干净的用户体验用户连接钱包即可完成USDT投注及所有交互体验</p>
+    <h2 class="title-lg linear-color text-align-center">Creating new sports betting experiences on Betweb3.0</h2>
+    <p class="text-align-center mt-32 desc line-height-24">Betweb2.0's online sports betting market is already huge and mature. Nonetheless, with the advent of Betweb3.0, we are starting to see many drawbacks to traditional online sports betting platforms. </p>
+    <p class="text-align-center desc line-height-24">Betweb3 creates the cleanest user experience, allowing users to connect their wallet to complete USDT betting and all interactive experience.</p>
 
     <div style="height: 34vw" class="bg-gray-20 mt-48 flex items-center justify-center">
       视频
