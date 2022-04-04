@@ -49,5 +49,8 @@ export default defineComponent({
     //   height: 100%;
     // }
   }
+  &:active {
+    background-image: linear-gradient(to right, #8F41E9, #578AEF), linear-gradient(90deg, #8F41E9, #578AEF);
+  }
 }
 </style>

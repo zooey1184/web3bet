@@ -1,16 +1,32 @@
 <template>
-  <canvas :width="canvasRadius" :height="canvasRadius" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" ref="canvas"></canvas>
+  <div class="pos-r">
+    <div class="pos-a main-logo">
+      <FadeLogo useA />
+    </div>
+    <canvas :width="canvasRadius" :height="canvasRadius" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" ref="canvas"></canvas>
+  </div>
 </template>
 
 <script>
 import { computed, defineComponent, onMounted, ref } from "vue";
+import FadeLogo from '../fade-logo'
+import C3_1 from '../../assets/c3-1.png'
+import C3_2 from '../../assets/c3-2.png'
+import C3_3 from '../../assets/c3-3.png'
+import C3_4 from '../../assets/c3-4.png'
+import C2_2 from '../../assets/c2-2.png'
+import C2_1 from '../../assets/c2-1.png'
+import C1_1 from '../../assets/c1-1.png'
+import C1_2 from '../../assets/c1-2.png'
 
 export default defineComponent({
-  components: {},
+  components: {
+    FadeLogo
+  },
   props: {
     radius: {
       type: [String, Number],
-      default: 510
+      default: 580
     }
   },
   setup(props) {
@@ -31,19 +47,19 @@ export default defineComponent({
     onMounted(() => {
       const ctx = canvas.value.getContext("2d");
       function drawTrack() {
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0; i < 3; i++) {
           ctx.beginPath();
           
-          ctx.arc((RADIUS+4)/2, (RADIUS+4)/2, (i + 1) * 50, 0, 2 * Math.PI, false);
+          ctx.arc((RADIUS+4)/2, (RADIUS+4)/2, (i + 1) * 60 + 70, 0, 2 * Math.PI, false);
           // const gt = ctx.createRadialGradient(RADIUS, RADIUS, 30, RADIUS+50, RADIUS+50, 130)
-          const gt = ctx.createLinearGradient(0, 0, RADIUS * 2, RADIUS * 2)
-          gt.addColorStop(0, '#f8d68e');
-          gt.addColorStop(0.3, '#f2a0be')
-          gt.addColorStop(0.5, '#2fc2c7')
-          gt.addColorStop(0.8, '#376dfa');
+          const gt = ctx.createLinearGradient(0, RADIUS, RADIUS * 2, RADIUS)
+          gt.addColorStop(0, '#c17bfd');
+          gt.addColorStop(0.3, '#c17bfd')
+          gt.addColorStop(0.5, '#376dfa')
           gt.addColorStop(1, '#376dfa');
           // ctx.strokeStyle = "#fff";
           ctx.strokeStyle = gt
+          ctx.lineWidth = 2
           ctx.stroke();
           ctx.closePath();
         }
@@ -51,32 +67,31 @@ export default defineComponent({
       drawTrack();
 
       class Star {
-        constructor(x, y, radius, cycle, sColor, eColor) {
+        constructor(x, y, radius, cycle, offset = 0, imgSRC) {
           this.x = x;
           this.y = y;
           this.radius = radius;
           this.cycle = cycle;
-          this.sColor = sColor;
-          this.eColor = eColor;
 
           this.color = null;
           this.time = 0;
           this.dampx = 2 // 阻尼系数
           const img = new Image()
-          img.src = 'https://tva1.sinaimg.cn/large/e6c9d24ely1h0m4su187ej21s20u0796.jpg'
+          img.src = imgSRC
           this.img = img
-          this.step = 0
+          this.step = offset // 偏移量
         }
         draw(ctx, isStop) {
           ctx.beginPath();
           ctx.save();
           ctx.translate(RADIUS/2, RADIUS/2);
-          // ctx.rotate((((this.time * 360) / this.cycle) * Math.PI) / 180);
-          // const step = (((this.time * 360) / this.cycle) * Math.PI) / 180
+          
           this.step += Math.PI/(600 + this.cycle)
           this.x = this.radius * Math.cos(this.step)
           this.y = this.radius * Math.sin(this.step);
-          ctx.arc(this.x, this.y, 20, 0, 2 * Math.PI, false);
+          const imgRadius = 27
+
+          ctx.arc(this.x, this.y, imgRadius+2, 0, 2 * Math.PI, false);
           
           this.color = ctx.createRadialGradient(
             this.x,
@@ -86,13 +101,14 @@ export default defineComponent({
             this.y,
             this.radius
           );
-          this.color.addColorStop(0, this.sColor);
-          this.color.addColorStop(1, this.eColor);
+          this.color.addColorStop(0, "#A69888");
+          this.color.addColorStop(1, "#5c3616");
           ctx.fillStyle = this.color;
           ctx.fill();
           ctx.clip()
           
-          ctx.drawImage(this.img, this.x-this.radius, this.y-this.radius, 50, 50);
+          
+          ctx.drawImage(this.img, this.x-imgRadius, this.y-imgRadius, imgRadius*2, imgRadius*2);
           ctx.restore();
           
           // img.onload = () => {
@@ -110,49 +126,29 @@ export default defineComponent({
         }
       }
 
-      //创建各个星球类，通过伪继承
-      // function Earth(){
-      // 	Star.call(this,0,-150,10,365,"#78b1eb","#050c12")
-      // }
-      // function Mars(){
-      // 	Star.call(this,0,-200,10,687,"#cec999","#76422d")
-      // }
-
-      // function Jupiter(){
-      // 	Star.call(this,0,-250,10,4333,"#c0a48e","#322222")
-      // }
-      // function Saturn(){
-      // 	Star.call(this,0,-300,10,10766,"#f7f9e3","#1F1666")
-      // }
-      // function Uranus(){
-      // 	Star.call(this,0,-350,10,30799,"#a7e1e8","#19243a")
-      // }
-      // function Neptune(){
-      // 	Star.call(this,0,-400,10,60129,"#0661b2","#1e3b73")
-      // }
-
-      //根据各个星球类创建实例对象
-      // var earth=new Earth()
-      // var mars=new Mars()
-      const sun = new Star(0, 0, 150, 10, "#f00", "#f00");
-      const mercury = new Star(0, -150, 100, -80, "#A69888", "#5c3666");
-      const venus = new Star(0, -100, 200, -300, "#C4BBAC", "#1F1666");
+      const CircleC1_1 = new Star(0, 0, 130, 10, 89.5, C1_1);
+      const CircleC1_2 = new Star(0, 0, 130, 10, 30, C1_2);
+      const CircleC2_1 = new Star(0, -150, 190, -80, 60, C2_1);
+      const CircleC2_2 = new Star(0, -150, 190, -80, 220, C2_2);
+      const CircleC3_1 = new Star(0, -100, 250, -300, 0, C3_1);
+      const CircleC3_2 = new Star(0, -100, 250, -300, 10.3, C3_2);
+      const CircleC3_3 = new Star(0, -100, 250, -300, 21.12, C3_3);
+      const CircleC3_4 = new Star(0, -100, 250, -300, 36.2, C3_4);
 
       
-      
-
-      // var jupiter=new Jupiter()
-      // var saturn=new Saturn()
-      // var uranus=new Uranus()
-      // var neptune=new Neptune()
 
       function move(isStop) {
         ctx.clearRect(0, 0, 1000, 1000);
         drawTrack();
 
-        sun.draw(ctx);
-        mercury.draw(ctx, isStop);
-        venus.draw(ctx, isStop);
+        CircleC1_1.draw(ctx);
+        CircleC1_2.draw(ctx)
+        CircleC2_1.draw(ctx, isStop);
+        CircleC2_2.draw(ctx, isStop);
+        CircleC3_1.draw(ctx, isStop);
+        CircleC3_2.draw(ctx, isStop);
+        CircleC3_3.draw(ctx, isStop);
+        CircleC3_4.draw(ctx, isStop);
       }
       function anim() {
         requestAnimationFrame(function () {
@@ -181,7 +177,14 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .canvas {
-  width: 50vw;
-  height: 50vw;
+  width: 54vw;
+  height: 54vw;
+}
+.main-logo {
+  width: 200px;
+  height: 200px;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
 }
 </style>

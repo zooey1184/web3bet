@@ -13,7 +13,7 @@
         <img class="icon" src="../../assets/icon-discord.png" alt="">
         <img class="icon" src="../../assets/icon-g.png" alt="">
       </div>
-      <div class="text">Disclaimers</div>
+      <div class="text cursor-pointer link">Disclaimers</div>
     </div>
   </div>
   <div style="margin-top: 26px" class="text-align-center gray-9 font-size-12">

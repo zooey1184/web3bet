@@ -25,7 +25,7 @@
         <img style="height: 43px" src='../../assets/logo.png'/>
       </div>
       <div class="flex items-ceneter justify-between ml-40">
-        <div class="ml-40 inline-block" @click="handleClickMenuItem(item.value)" :class="{'primary': state.active === item.value}" v-for='item in options'>{{item.label}}</div>
+        <div class="ml-40 cursor-pointer left_btn inline-block" @click="handleClickMenuItem(item.value)" :class="{'primary': state.active === item.value}" v-for='item in options'>{{item.label}}</div>
       </div>
     </div>
     <div class="flex items-center">
@@ -169,6 +169,11 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
+  user-select: none;
+  &:active {
+    color: #fff;
+    opacity: 0.8;
+  }
   @media (min-width: 1040px) and (max-width: 1560px) {
     width: 145px;
     height: 42px;
@@ -176,6 +181,11 @@ export default defineComponent({
   @media (min-width: 1561px) {
     width: 175px;
     height: 47px;
+  }
+}
+.left_btn {
+  &:hover {
+    color: #376dfa;
   }
 }
 </style>

@@ -1,8 +1,9 @@
 <template>
   <div class="pos-r" @click="handleClick">
-    <div class="circle bg z-index-9" :style="{width: getSize, height: getSize}">
+    <div class="circle bg z-index-9" :style="{width: getSize, height: getSize}" :class="{active: solid}">
       <img class="w-100p" v-if='!solid' src="../../../assets/circle-dashed.png" alt="">
       <img class="w-100p active" v-else src="../../../assets/circled.png" alt="">
+      <div class="description" v-if='desc'>{{desc}}</div>
       <div class="content">
         <slot></slot>
       </div>
@@ -49,7 +50,8 @@ export default defineComponent({
     showLine: {
       type: Boolean,
       default: true
-    }
+    },
+    desc: String
   },
   emits: ['click'],
   setup(props, {emit}) {
@@ -80,6 +82,13 @@ export default defineComponent({
 .circle {
   position: relative;
   border-radius: 10000px;
+  overflow: hidden;
+  &:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    .description {
+      transform: translateY(0);
+    }
+  }
 }
 .dashed {
   height: 1px;
@@ -97,7 +106,38 @@ export default defineComponent({
   height: 94%;
 }
 .active {
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
   border-radius: 1000px;
+  animation: shadow 2000ms linear infinite;
+}
+@keyframes shadow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  }
+}
+.description {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1000px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  transition: all 300ms linear;
+  
 }
 </style>

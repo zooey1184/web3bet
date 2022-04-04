@@ -1,15 +1,16 @@
 <template>
   <div style="padding-top: 10vw; padding-bottom: 25vh" class="flex color-white justify-between">
     <img src="../../assets/part1-bg.png" class="bg_img" alt="">
-    <div style="z-index: 9">
-      <div class="title-md">The first Betweb3.0 sports betting platform to achieve decentralized </div>
-      <div class="flex items-center title-md">
-        <div class="mr-8 title-md"></div>
-        <div class="title-md linear-color">sports betting on the blockchain</div>
+    <div style="z-index: 9; width: 48vw">
+      <div class="title-md">The first Betweb3.0  
+        <div class="title-md">
+          Sports betting platform to achieve decentralized
+          <span class="title-md linear-color">sports betting on the blockchain</span>
+        </div>
       </div>
 
       <div style="margin-top: 4vw">
-        <div class="linear-bg inline-block launch_btn">Launch APP</div>
+        <div class="linear-bg inline-block launch_btn launch_btn_act">Launch APP</div>
       </div>
       <div style="margin-top: 0.5vw">
         <div class="color-blue inline-block launch_btn">No sign-up required</div>
@@ -22,9 +23,25 @@
         <div class="link desc">and more</div>
       </div>
     </div>
-    <img class='w-100p' style="width: 24vw; height: auto;" src="../../assets/part1-gif.gif" />
+    <div  style="width: 25vw; height: 28vw; top: -5vw" class="pos-r overflow-hidden">
+      <FadeLogo />
+    </div>
+    
   </div>
 </template>
+
+<script>
+import { defineComponent, ref } from 'vue'
+import FadeLogo from '@/components/fade-logo'
+
+export default defineComponent({
+  components: {
+    FadeLogo
+  },
+  props: {},
+  setup(props) {}
+})
+</script>
 
 <style lang="less" scoped>
 .bg_img {
@@ -39,7 +56,10 @@
   align-items: center;
   justify-content: center;
   width: 160px;
+  cursor: default;
   font-size: 14px;
+  user-select: none;
+  transition: all 300ms linear;
   @media (min-width: 900px) and (max-width: 1440px) {
     padding: 10px 0;
     width: 200px;
@@ -54,6 +74,14 @@
     padding: 16px 0;
     font-size: 17px;
     width: 280px;
+  }
+}
+.launch_btn_act {
+  &:hover {
+    opacity: 0.8;
+  }
+  &:active {
+    transform: scale(1.1);
   }
 }
 .desc {
@@ -82,4 +110,5 @@
     height: 33px;
   }
 }
+
 </style>

@@ -16,19 +16,10 @@
       <Arrow dir='up' @click="handleClickUp" :disabled="state.active===0" />
     </div>
     <div class="line_right">
-      <div class="bar_right" :style="{top: (50*state.active+16)+'px'}"></div>
+      <div class="desc_hidden subTitle bg-blue" ref='clientRectRef'>TEST</div>
+      <div class="bar_right" :style="{top: (state.step*state.active+20)+'px'}"></div>
       <div v-for='(item, index) in options' @click="state.active = index" class="item text-align-right">
-        <div class="subTitle" :class="{'color-blue': state.active === index}">{{item.label}}</div>
-        <div class="desc" v-if='item.desc' :style="{maxHeight: state.active === index ? item.maxHeight || '120px' : '0'}">
-          <slot :name='item.slot'>
-            <template v-if='typeof item.desc === "string"'>
-              <div class="desc_item">{{item.desc}}</div>
-            </template>
-            <template v-if='typeof item.desc === "object"'>
-              <div v-for='ii in item.desc' class="desc_item">{{ii}}</div>
-            </template>
-          </slot>
-        </div>
+        <Pane :visible='state.active===index' :title='item.label' :desc='item.desc' />
       </div>
     </div>
     <div class="flex justify-end">
@@ -38,12 +29,14 @@
 </template>
 
 <script>
-import { defineComponent, reactive, ref } from 'vue'
+import { defineComponent, onMounted, reactive, ref, watch, nextTick, computed, watchEffect } from 'vue'
 import Arrow from './arrow.vue'
+import Pane from './pane.vue'
 
 export default defineComponent({
   components: {
-    Arrow
+    Arrow,
+    Pane
   },
   props: {
     options: {
@@ -59,9 +52,22 @@ export default defineComponent({
       default: 'right'
     }
   },
-  setup(props) {
+  emits: ['update:active', 'change'],
+  setup(props, {emit}) {
+    const clientRectRef = ref()
+
     const state = reactive({
-      active: props.active
+      active: props.active,
+      step: 46
+    })
+
+    watch(() => props.active, (n) => {
+      state.active = n
+    })
+
+    watch(() => state.active, (n) => {
+      emit('update:active', n)
+      emit('change', n)
     })
 
     const handleClickDown = () => {
@@ -75,11 +81,21 @@ export default defineComponent({
       }
     }
 
+    
+    watchEffect(() => {
+      if (clientRectRef.value) {
+        const c = clientRectRef.value
+        const rect = c.getBoundingClientRect()
+        console.log(rect.height);
+        state.step = rect.height + 20
+      }
+    })
 
     return {
       state,
+      clientRectRef,
       handleClickDown,
-      handleClickUp
+      handleClickUp,
     }
   }
 })
@@ -133,7 +149,7 @@ export default defineComponent({
   }
 }
 .desc {
-  max-height: 0;
+  max-height: 1px;
   transition: all 150ms linear;
   overflow: hidden;
 }
@@ -153,5 +169,11 @@ export default defineComponent({
     top: 8px;
     right: 0;
   }
+}
+.desc_hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
 }
 </style>

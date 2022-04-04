@@ -1,46 +1,5 @@
 
-:root {
-  --bg: #020318;
-  --primary-main: #c17bfd;
-  --primary-sub: #376dfa;
-}
-.bg {
-  background: var(--bg);
-}
-.primary {
-  color: var(--primary-main);
-}
-.linear-color {
-  background-image:linear-gradient(to right, var(--primary-main), var(--primary-sub));
-  background-clip:text;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.linear-bg {
-  background-image:linear-gradient(to right, var(--primary-main), var(--primary-sub));
-}
-.linear-border {
-  .content {
-    border: 1px solid transparent;
-    border-radius: 2px;
-    position: relative;
-    background-clip: padding-box, border-box;
-    color: #fff;
-    background-origin: padding-box, border-box;
-    background-image: linear-gradient(to right, var(--bg), var(--bg)), linear-gradient(90deg, #8F41E9, #578AEF);
-    transition: all 200ms linear;
-    cursor: pointer;
-    &:hover {
-      background-image: linear-gradient(to right, var(--bg), var(--bg)), linear-gradient(90deg, #9e75ce, #b5ef57);
-    }
-  }
-}
-
-.link {
-  color: #1890ff;
-  text-decoration: underline;
-}
-
+@import url('./color.less');
 .title-lg {
   font-size: 50px;
   font-weight: 600;
@@ -65,24 +24,12 @@
   }
 }
 
-.gray {
-  color: #617199;
-}
-.grey {
-  color: #849EBF;
-}
-.gray-9 {
-  color: #98A8D2
-}
-.gray-9d {
-  color: #9D9EC1;
-}
 .gutter_col {
   margin-bottom: 11vw;
 }
 
 .gutter_x {
-  padding: 0 18.75vw;
+  padding: 0 15vw;
   box-sizing: border-box;
   @media screen and (max-width: 900px) {
     padding: 0 5vw;
@@ -98,9 +45,6 @@
   }
 }
 
-.color-blue {
-  color: #3B6FFC !important;
-}
 .px-56 {
   padding: 0 56px;
 }
@@ -137,6 +81,21 @@
   @media (min-width: 1920px) {
     font-size: 14px;
   }
+}
+.subTitle-lg {
+  font-size: 18px;
+  @media (min-width: 900px) and (max-width: 1440px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1441px) and (max-width: 1919px) {
+    font-size: 22px;
+  }
+  @media (min-width: 1920px) {
+    font-size: 24px;
+  }
+}
+.trans {
+  transition: all 150ms linear;
 }
 .subTitle {
   font-size: 16px;

@@ -7,10 +7,10 @@
 
     <div class="flex items-center justify-around">
       <div style="width: 30%;">
-        <Steps :options="options" />
+        <Steps :options="options" v-model:active='state.active' />
       </div>
       <div>
-        <CircleMap />
+        <CircleMap v-model:active='state.active' />
       </div>
     </div>
 
@@ -19,7 +19,7 @@
 
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, reactive, ref } from 'vue'
 import Steps from '../../components/steps'
 import CircleMap from './circle-map'
 
@@ -30,7 +30,11 @@ export default defineComponent({
   },
   props: {},
   setup(props) {
+    const state = reactive({
+      active: 0,
+    })
     return {
+      state,
       options: [
         {
           label: 'Q2 2022',
