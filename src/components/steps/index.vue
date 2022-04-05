@@ -11,7 +11,22 @@
     <Arrow dir='down' :disabled="state.active===options.length-1" />
   </div>
 
-  <div v-else>
+  <div v-if='align==="center"'>
+    <div class="flex justify-center">
+      <Arrow dir='up' @click="handleClickUp" :disabled="state.active===0" />
+    </div>
+    <div class="line_center">
+      <div class="desc_hidden subTitle bg-blue" ref='clientRectRef'>TEST</div>
+      <div v-for='(item, index) in options' @click="state.active = index" class="item text-align-center">
+        <Pane align="center" :visible='state.active===index' :title='item.label' :desc='item.desc' />
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <Arrow dir='down' @click='handleClickDown' :disabled="state.active===options.length-1" />
+    </div>
+  </div>
+
+  <div v-if='align==="right"'>
     <div class="flex justify-end">
       <Arrow dir='up' @click="handleClickUp" :disabled="state.active===0" />
     </div>
@@ -122,6 +137,10 @@ export default defineComponent({
   padding: 16px 0;
   padding-right: 32px;
   margin: 16px 30px;
+  transition: all 100ms linear;
+}
+.line_center {
+  margin: 16px;
   transition: all 100ms linear;
 }
 .bar {

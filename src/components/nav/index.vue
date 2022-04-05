@@ -1,9 +1,9 @@
 <template>
   <div v-if='isMobile'>
-    <div class="m_nav bg flex items-center justify-between">
+    <div class="m_nav bg pos-f flex items-center justify-between">
       <More v-model:value='state.visible' />
       <div class="color-white">
-        Logo
+        <img style="height: 30px" src='../../assets/logo.png'/>
       </div>
       <div>
         
@@ -11,7 +11,15 @@
     </div>
     <transition name='slide'>
       <div v-if='state.visible' class="m_nav_content">
+        <div style="height: 80px"></div>
+        <div class="m_item" @click="handleClickMenuItem(item.value)" :class="{'primary': state.active === item.value}" v-for='item in options'>{{item.label}}</div>
 
+        <div class="mt-40">
+          <LinearBox v-for='item in btnList' class="mb-16">
+            <div class="primary m_btn_px ">{{item.label}}</div>
+          </LinearBox>
+          <div class="linear-bg m_btn_px" style="border-radius: 2px">{{launch}}</div>
+        </div>
       </div>
     </transition>
   </div>
@@ -19,9 +27,6 @@
   <div v-else class="pc_nav bg">
     <div class="flex items-center">
       <div>
-        <!-- <div class="linear-bg" style="height: 43px">
-          <img style="height: 43px" src='../../assets/logo-black.png'/>
-        </div> -->
         <img style="height: 43px" src='../../assets/logo.png'/>
       </div>
       <div class="flex items-ceneter justify-between ml-40">
@@ -104,6 +109,7 @@ export default defineComponent({
     })
 
     const handleClickMenuItem = (item) => {
+      state.visible = false
       emit('change', item)
       emit('update:active', item)
     }
@@ -133,7 +139,12 @@ export default defineComponent({
 }
 .m_nav_content {
   height: 100%;
+  width: 100%;
+  top: 0;
   z-index: 89;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #020318f5;
   .m__nav;
 }
 .slide-enter-active, .slide-leave-active {
@@ -186,6 +197,23 @@ export default defineComponent({
 .left_btn {
   &:hover {
     color: #376dfa;
+  }
+}
+.m_item {
+  padding: 24px;
+  padding-bottom: 18px;
+  font-size: 24px;
+  color: white;
+}
+.m_btn_px {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  &:active {
+    color: #fff;
+    opacity: 0.8;
   }
 }
 </style>

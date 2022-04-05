@@ -3,10 +3,10 @@
   <div class="desc" v-if='desc' :style="{maxHeight: `${state.height}px`}">
     <div ref='contentRef'>
       <template v-if='typeof desc === "string"'>
-        <div class="desc_item">{{desc}}</div>
+        <div class="desc_item" :class="{'desc_item_dot': align==='right'}">{{desc}}</div>
       </template>
       <template v-if='typeof desc === "object"'>
-        <div v-for='ii in desc' class="desc_item mb-8">{{ii}}</div>
+        <div v-for='ii in desc' class="desc_item mb-8" :class="{'desc_item_dot': align==='right'}">{{ii}}</div>
       </template>
     </div>
   </div>
@@ -28,6 +28,10 @@ export default defineComponent({
     },
     maxHeight: {
       type: [String]
+    },
+    align: {
+      type: String,
+      default: 'right'
     }
   },
   emits: ['update:visible'],
@@ -78,9 +82,7 @@ export default defineComponent({
 .desc_act {
   max-height: 20px;
 }
-.desc_item {
-  position: relative;
-  padding-right: 18px;
+.desc_item_dot {
   &:after {
     content: "";
     position: absolute;
@@ -91,5 +93,10 @@ export default defineComponent({
     top: 8px;
     right: 0;
   }
+}
+.desc_item {
+  position: relative;
+  padding-right: 18px;
+  
 }
 </style>

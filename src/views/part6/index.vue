@@ -1,25 +1,24 @@
 <template>
-  <div>
-    <div class=" text-align-center">Betweb3 is expanding to more blockchain networks</div>
-    <div class="flex justify-center">
-      <div class="title-lg linear-color">Multi-chain technology and scaling</div>
-    </div>
-  </div>
-
-  <div class="flex justify-center">
-    <Circle />
-  </div>
+  <Pc v-if='!isMobile' />
+  <Mobile v-else />
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
-import Circle from '../../components/circle'
+import { defineComponent, inject, ref } from 'vue'
+import Pc from './pc.vue'
+import Mobile from './mobile.vue'
 
 export default defineComponent({
   components: {
-    Circle
+    Pc,
+    Mobile
   },
   props: {},
-  setup(props) {}
+  setup(props) {
+    const isMobile = inject('isMobile')
+    return {
+      isMobile
+    }
+  }
 })
 </script>

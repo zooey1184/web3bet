@@ -27,6 +27,18 @@ export default defineComponent({
     radius: {
       type: [String, Number],
       default: 580
+    },
+    imgRadius: {
+      type: Number,
+      default: 27
+    },
+    perRadius: {
+      type: Number,
+      default: 60
+    },
+    initR: {
+      type: Number,
+      default: 70
     }
   },
   setup(props) {
@@ -46,11 +58,13 @@ export default defineComponent({
 
     onMounted(() => {
       const ctx = canvas.value.getContext("2d");
+      const PER_R = props.perRadius
+      const INIT_R = props.initR
       function drawTrack() {
         for (var i = 0; i < 3; i++) {
           ctx.beginPath();
           
-          ctx.arc((RADIUS+4)/2, (RADIUS+4)/2, (i + 1) * 60 + 70, 0, 2 * Math.PI, false);
+          ctx.arc((RADIUS+4)/2, (RADIUS+4)/2, (i + 1) * PER_R + INIT_R, 0, 2 * Math.PI, false);
           // const gt = ctx.createRadialGradient(RADIUS, RADIUS, 30, RADIUS+50, RADIUS+50, 130)
           const gt = ctx.createLinearGradient(0, RADIUS, RADIUS * 2, RADIUS)
           gt.addColorStop(0, '#c17bfd');
@@ -89,7 +103,7 @@ export default defineComponent({
           this.step += Math.PI/(600 + this.cycle)
           this.x = this.radius * Math.cos(this.step)
           this.y = this.radius * Math.sin(this.step);
-          const imgRadius = 27
+          const imgRadius = props.imgRadius
 
           ctx.arc(this.x, this.y, imgRadius+2, 0, 2 * Math.PI, false);
           
@@ -126,14 +140,17 @@ export default defineComponent({
         }
       }
 
-      const CircleC1_1 = new Star(0, 0, 130, 10, 89.5, C1_1);
-      const CircleC1_2 = new Star(0, 0, 130, 10, 30, C1_2);
-      const CircleC2_1 = new Star(0, -150, 190, -80, 60, C2_1);
-      const CircleC2_2 = new Star(0, -150, 190, -80, 220, C2_2);
-      const CircleC3_1 = new Star(0, -100, 250, -300, 0, C3_1);
-      const CircleC3_2 = new Star(0, -100, 250, -300, 10.3, C3_2);
-      const CircleC3_3 = new Star(0, -100, 250, -300, 21.12, C3_3);
-      const CircleC3_4 = new Star(0, -100, 250, -300, 36.2, C3_4);
+      const FIRST_C = props.perRadius + props.initR
+      const SECOND_C = props.perRadius*2 + props.initR
+      const THREE_C = props.perRadius*3 + props.initR
+      const CircleC1_1 = new Star(0, 0, FIRST_C, 10, 89.5, C1_1);
+      const CircleC1_2 = new Star(0, 0, FIRST_C, 10, 30, C1_2);
+      const CircleC2_1 = new Star(0, -150, SECOND_C, -80, 60, C2_1);
+      const CircleC2_2 = new Star(0, -150, SECOND_C, -80, 220, C2_2);
+      const CircleC3_1 = new Star(0, -100, THREE_C, -300, 0, C3_1);
+      const CircleC3_2 = new Star(0, -100, THREE_C, -300, 10.3, C3_2);
+      const CircleC3_3 = new Star(0, -100, THREE_C, -300, 21.12, C3_3);
+      const CircleC3_4 = new Star(0, -100, THREE_C, -300, 36.2, C3_4);
 
       
 
@@ -184,7 +201,11 @@ export default defineComponent({
   width: 200px;
   height: 200px;
   left: 50%;
-  top: 42%;
+  top: 43%;
   transform: translate(-50%, -50%);
+  @media (max-width: 600px) {
+    width: 80px;
+    height: 80px;
+  }
 }
 </style>

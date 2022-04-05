@@ -1,5 +1,9 @@
 
 @import url('./color.less');
+@import url('./transition.less');
+.box {
+  box-sizing: border-box;
+}
 .title-lg {
   font-size: 50px;
   font-weight: 600;
@@ -25,7 +29,19 @@
 }
 
 .gutter_col {
-  margin-bottom: 11vw;
+  margin-bottom: 10vw;
+  @media screen and (max-width: 900px) {
+    margin-bottom: 15vh;
+  }
+  @media (min-width: 901px) and (max-width: 1200px) {
+    margin-bottom: 10vw;
+  }
+  @media (min-width: 1201px) and (max-width: 1500px) {
+    margin-bottom: 10vw;
+  }
+  @media (min-width: 1501px) and (max-width: 1919px) {
+    margin-bottom: 10vw;
+  }
 }
 
 .gutter_x {

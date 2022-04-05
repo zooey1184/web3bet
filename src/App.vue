@@ -1,5 +1,5 @@
 <template>
-  <div class="color-white bg" ref="wrapRef">
+  <div class="color-white bg overflow-x-hidden" ref="wrapRef">
     <Navbar :isMobile='isMobile' v-model:active='state.active' @change='handleChangeNav' />
     <div class="bg gutter_x" style="margin-top: 60px">
       <Part1 />
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, onMounted, provide, reactive } from 'vue'
+import { defineComponent, ref, onMounted, provide, reactive, computed } from 'vue'
 import Circle from './components/circle'
 import Navbar from './components/nav'
 import Steps from './components/steps'
@@ -70,7 +70,8 @@ export default defineComponent({
     const tokenRef = ref()
     const mapRef = ref()
     const state = reactive({
-      active: 'product'
+      active: 'product',
+      scrollTop: 0
     })
 
     provide('isMobile', isMobile)
@@ -87,10 +88,15 @@ export default defineComponent({
         }
       }
     }
+
+    const SCROLL_TOP = computed(() => state.scrollTop)
+    provide('scrollTop', SCROLL_TOP)
+
     window.onscroll = throttleFn((e) => {
       const product = productRef.value?.getBoundingClientRect()
       const token = tokenRef.value?.getBoundingClientRect()
       const map = mapRef.value?.getBoundingClientRect()
+      state.scrollTop = document.documentElement.scrollTop;
       if(product) {
         if (product.y + product.height > 80 &&  product.y + product.height <= product.height) {
           state.active = 'product'
