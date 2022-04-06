@@ -201,7 +201,7 @@ export default defineComponent({
   width: 200px;
   height: 200px;
   left: 50%;
-  top: 43%;
+  top: 53%;
   transform: translate(-50%, -50%);
   @media (max-width: 600px) {
     width: 80px;
