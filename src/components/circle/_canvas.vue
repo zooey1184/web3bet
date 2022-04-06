@@ -1,7 +1,7 @@
 <template>
   <div class="pos-r">
     <div class="pos-a main-logo">
-      <img class="w-100p" v-lazy='Logo' />
+      <img class="w-100p" :src='Logo' />
     </div>
     <canvas :width="canvasRadius" :height="canvasRadius" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" ref="canvas"></canvas>
   </div>
