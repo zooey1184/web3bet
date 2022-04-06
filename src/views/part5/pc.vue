@@ -2,7 +2,7 @@
   <Wrap>
     <template #default='data'>
       <div class="gutter_col flex justify-between pos-r">
-        <img src="../../assets/part5-bg.png" class='abs-bg' alt="">
+        <img v-lazy='BgImg' class='abs-bg' alt="">
         <transition name='slideLeft'>
           <div v-show='data.show[1]' style="width: 40%; padding-top: 11vh">
             <Steps :options="options" />
@@ -29,6 +29,7 @@ import { defineComponent, ref } from 'vue'
 import Steps from '../../components/steps'
 import Wrap from '@/components/wrap'
 import MouseTrack from '@/components/mouse-track'
+import BgImg from '../../assets/part5-bg.png'
 
 export default defineComponent({
   components: {
@@ -60,7 +61,8 @@ export default defineComponent({
           label: 'bet wins',
           desc: 'The capital pool will automatically transfer USDT to the winning address through the smart contract'
         },
-      ]
+      ],
+      BgImg
     }
   }
 })

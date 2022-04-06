@@ -2,7 +2,7 @@
 <Wrap>
   <template #default='data'>
     <div style="padding-top: 10vw; min-height: 85vh" class="box flex color-white justify-between">
-      <img src="../../assets/part1-bg.png" class="bg_img" alt="">
+      <img v-lazy='BgImg' class="bg_img" alt="">
       <div style="z-index: 9; width: 48vw">
         <transition name='fade'>
           <div class="title-md" v-show='data.show[0]'>The first Betweb3.0  
@@ -27,7 +27,7 @@
           <div v-show='data.show[3]' class="flex mt-24 items-center">
             <div class="gray desc">Audited by</div>
             <div class="mx-16">
-              <img src="../../assets/logo.png" class="logo" alt="">
+              <img v-lazy='Logo' class="logo" alt="">
             </div>
             <div class="link desc">and more</div>
           </div>
@@ -49,6 +49,8 @@ import { defineComponent, ref } from 'vue'
 import FadeLogo from '@/components/fade-logo'
 import Wrap from '@/components/wrap'
 import MouseTrack from '@/components/mouse-track'
+import BgImg from '../../assets/part1-bg.png'
+import Logo from '../../assets/logo.png'
 
 export default defineComponent({
   components: {
@@ -57,7 +59,12 @@ export default defineComponent({
     MouseTrack
   },
   props: {},
-  setup(props) {}
+  setup(props) {
+    return {
+      BgImg,
+      Logo
+    }
+  }
 })
 </script>
 

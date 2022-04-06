@@ -8,12 +8,13 @@
     </transition>
   </div>
   <div v-if='disabled'>
-    <img class='w-100p pos-r' src="../../assets/part1_gif.gif" />
+    <img class='w-100p pos-r' v-lazy='Logo' />
   </div>
 </template>
 
 <script>
 import { defineComponent, onMounted, reactive, ref, nextTick, watch } from 'vue'
+import Logo from '../../assets/part1_gif.gif'
 
 export default defineComponent({
   components: {},
@@ -54,7 +55,8 @@ export default defineComponent({
     })
 
     return {
-      state
+      state,
+      Logo
     }
   }
 })

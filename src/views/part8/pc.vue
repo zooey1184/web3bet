@@ -2,8 +2,8 @@
   <Wrap>
     <template #default='data'>
       <div class="mb-48 pos-r">
-        <img src="../../assets/part8-bg1.png" class="abs-bg1" alt="">
-        <img src="../../assets/part8-bg2.png" class="abs-bg2" alt="">
+        <img v-lazy='BgImg1' class="abs-bg1" alt="">
+        <img v-lazy='BgImg2' class="abs-bg2" alt="">
         <div style="margin-bottom: 26px" class="inline-block linear-color title-lg">Road map</div>
         <div class="subTitle"  style="margin-bottom: 63px">We are also working on ex、panding the Web3bet ecosystem.Stay tuned…</div>
         <div class="flex items-center justify-around">
@@ -29,6 +29,8 @@ import { defineComponent, reactive, ref } from 'vue'
 import Steps from '../../components/steps'
 import CircleMap from './circle-map'
 import Wrap from '@/components/wrap'
+import BgImg1 from '../../assets/part8-bg1.png'
+import BgImg2 from '../../assets/part8-bg2.png'
 
 export default defineComponent({
   components: {
@@ -87,7 +89,9 @@ export default defineComponent({
             'The community governance plan was officially released"'
           ]
         },
-      ]
+      ],
+      BgImg1,
+      BgImg2
     }
   }
 })

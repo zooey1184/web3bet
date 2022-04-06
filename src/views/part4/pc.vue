@@ -36,8 +36,8 @@
             </div>
           </transition>
         </div>
-        <div style="height: 16.5vw; width: 24vw" class="pos-r flex-0">
-          <img src="../../assets/part4_gif.gif" class="gif-pane" alt="">
+        <div style="height: 18vw; width: 26vw" class="pos-r flex-0">
+          <img v-lazy='Gif' class="gif-pane" alt="">
         </div>
       </div>
     </template>
@@ -48,6 +48,7 @@
 import { defineComponent, ref } from 'vue'
 import Wrap from '@/components/wrap'
 import MouseTrack from '@/components/mouse-track'
+import Gif from '../../assets/part4_gif.gif'
 
 export default defineComponent({
   components: {
@@ -56,7 +57,9 @@ export default defineComponent({
   },
   props: {},
   setup(props) {
-
+    return {
+      Gif
+    }
   }
 })
 </script>
@@ -70,7 +73,7 @@ export default defineComponent({
 .gif-pane {
   width: 110%;
   position: absolute;
-  right: -7vw;
+  right: -2vw;
   top: 0;
 }
 </style>

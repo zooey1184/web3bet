@@ -1,17 +1,17 @@
 <template>
   <div class="flex items-center justify-between">
     <div class="flex items-center">
-      <img src="../../assets/footer-logo.png" alt="">
+      <img v-lazy='logo' alt="">
       <div class="right">
         ©2021 - Nesting - All Rights Reserved
       </div>
     </div>
     <div class="flex items-center">
       <div class="flex items-center">
-        <img class="icon" src="../../assets/icon-t.png" alt="">
-        <img class="icon" src="../../assets/icon-m.png" alt="">
-        <img class="icon" src="../../assets/icon-discord.png" alt="">
-        <img class="icon" src="../../assets/icon-g.png" alt="">
+        <img class="icon" v-lazy='Icon_t' alt="">
+        <img class="icon" v-lazy='Icon_m' alt="">
+        <img class="icon" v-lazy='Icon_d' alt="">
+        <img class="icon" v-lazy='Icon_g' alt="">
       </div>
       <div class="text cursor-pointer link">Disclaimers</div>
     </div>
@@ -20,6 +20,28 @@
     indicative of future performance. Any investment in blockchain assets involves the risk of losing part or all of your investment. The value of your exchange’s blockchain assets is affected by market and other investment risks
   </div>
 </template>
+
+<script>
+import { defineComponent, ref } from 'vue'
+import logo from '../../assets/footer-logo.png'
+import Icon_t from '../../assets/icon-t.png'
+import Icon_m from '../../assets/icon-m.png'
+import Icon_d from '../../assets/icon-discord.png'
+import Icon_g from '../../assets/icon-g.png'
+export default defineComponent({
+  components: {},
+  props: {},
+  setup(props) {
+    return {
+      logo,
+      Icon_t,
+      Icon_m,
+      Icon_d,
+      Icon_g
+    }
+  }
+})
+</script>
 
 <style lang="less" scoped>
 .right {

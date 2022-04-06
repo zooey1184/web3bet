@@ -2,10 +2,10 @@
   <Wrap>
     <template #default='data'>
       <div class="pos-r">
-        <img src="../../assets/part3-bg.png" class="pos-a" style="left: -8vw; top: -12vw; z-index: 9" alt="">
+        <img v-lazy='BgImg' class="pos-a" style="left: -8vw; top: -12vw; z-index: 9" alt="">
         <div class="flex gutter_col items-center justify-between">
           <div style="height: 18vw; width: 24vw" class="pos-r flex-0 mr-24 mt-16">
-            <img class="w-100p gif-pane" src="../../assets/part3-gif.gif" alt="">
+            <img class="w-100p gif-pane" v-lazy='Gif' alt="">
           </div>
           
           <div class="color-white fle-1">
@@ -27,7 +27,7 @@
             <transition name='slideBottom'>
               <div class="item" v-show='data.show[3]'>
                 <div>
-                  <img src="../../assets/part3-1.png" alt="">
+                  <img v-lazy='Icon1' alt="">
                 </div>
                 <p style='margin-left: 13px'>Destruction of the ownership of the capital pool</p>
               </div>
@@ -35,14 +35,14 @@
             <transition name='slideBottom'>
               <div class="item" v-show='data.show[4]'>
                 <div>
-                  <img src="../../assets/part3-2.png" alt="">
+                  <img v-lazy='Icon2' alt="">
                 </div>
                 <p style='margin-left: 13px'>60% of each profit is distributed to token holders, 10% is automatically repurchased destroyed token, and 30% remains in the capital pool</p>
               </div>
             </transition>
             <transition name='slideBottom'>
               <div class="flex items-center" v-show='data.show[5]'>
-                <div><img src="../../assets/part3-3.png" alt=""></div>
+                <div><img v-lazy='Icon3' alt=""></div>
                 <p style='margin-left: 13px'>Amount and profit are completely transparent</p>
               </div>
             </transition>
@@ -57,6 +57,12 @@
 import { defineComponent, inject, ref, watch } from 'vue'
 import Wrap from '@/components/wrap'
 import MouseTrack from '@/components/mouse-track'
+import BgImg from '../../assets/part3-bg.png'
+import Gif from '../../assets/part3-gif.gif'
+import Icon1 from '../../assets/part3-1.png'
+import Icon2 from '../../assets/part3-2.png'
+import Icon3 from '../../assets/part3-3.png'
+
 
 export default defineComponent({
   components: {
@@ -67,7 +73,11 @@ export default defineComponent({
   setup(props) {
 
     return {
-      
+      BgImg,
+      Gif,
+      Icon1,
+      Icon2,
+      Icon3
     }
   }
 })
