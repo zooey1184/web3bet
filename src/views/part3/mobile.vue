@@ -13,8 +13,9 @@
               <div class="subTitle text-align-center font-weight-600 mt-24 mb-32">USDT decentralized capital pool</div>
             </transition>
 
-            <div style="height: 16.5vh;" class="bg-gray-30 mb-24 mt-16">
-            </div>
+            <!-- <div style="height: 16.5vh;" class="bg-gray-30 mb-24 mt-16">
+            </div> -->
+            <img style="height: 30vh; z-index: 2" src="../../assets/part3-gif.gif" alt="">
             
             <transition name='slideBottom'>
               <div class="grey" style="margin-top: 6px; margin-bottom: 55px">

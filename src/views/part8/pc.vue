@@ -8,7 +8,7 @@
         <div class="subTitle"  style="margin-bottom: 63px">We are also working on ex、panding the Web3bet ecosystem.Stay tuned…</div>
         <div class="flex items-center justify-around">
           <transition name="slideLeft">
-            <div style="width: 30%;">
+            <div style="width: 35%;">
               <Steps :options="options" v-model:active='state.active' />
             </div>
           </transition>

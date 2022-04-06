@@ -1,9 +1,9 @@
 <template>
   <Wrap>
     <template #default='data'>
-      <div class="flex gutter_col justify-between">
+      <div class="flex gutter_col items-center justify-between">
       
-        <div class="color-white" style='width: 42%'>
+        <div class="color-white" style='width: 50%'>
           <transition name='slideBottom'>
             <div v-show='data.show[0]' style="margin-bottom: 36px" class="linear-color title-lg">The core process of smart contract execution</div>
           </transition>
@@ -26,7 +26,7 @@
           <transition name='slideBottom'>
             <div class="item" v-show='data.show[4]'>
               <div><img src="../../assets/part4-2.png" alt=""></div>
-              <p style='margin-left: 13px'>Impartial</p>
+              <p style='margin-left: 13px'>Just</p>
             </div>
           </transition>
           <transition name='slideBottom'>
@@ -36,9 +36,9 @@
             </div>
           </transition>
         </div>
-        <div style="height: 16.5vw; width: 24vw">
-          <img src="../../assets/part4_gif.gif" class="w-100p" alt="">
-          </div>
+        <div style="height: 16.5vw; width: 24vw" class="pos-r flex-0">
+          <img src="../../assets/part4_gif.gif" class="gif-pane" alt="">
+        </div>
       </div>
     </template>
   </Wrap>
@@ -66,5 +66,11 @@ export default defineComponent({
   display: flex;
   align-items: center;
   margin-bottom: 37px;
+}
+.gif-pane {
+  width: 110%;
+  position: absolute;
+  right: -7vw;
+  top: 0;
 }
 </style>

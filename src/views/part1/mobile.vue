@@ -1,8 +1,10 @@
 <template>
 <Wrap>
   <template #default='data'>
-    <div style="min-height: 85vh; padding-bottom: 15vh" class="box color-white">
-      <FadeLogo useA  />
+    <div style="min-height: 85vh; padding-bottom: 15vh; margin-top: 10vh" class="box color-white">
+      <div class="mb-32 mt-48">
+        <FadeLogo  />
+      </div>
       <div style="z-index: 9;">
         <img src="../../assets/part1-bg.png" class="bg_img" alt="">
         <transition name='fade'>
