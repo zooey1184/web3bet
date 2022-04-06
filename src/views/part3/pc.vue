@@ -2,10 +2,11 @@
   <Wrap>
     <template #default='data'>
       <div class="pos-r">
-        <img src="../../assets/part3-bg.png" class="pos-a" style="left: -8vw; top: -12vw" alt="">
+        <!-- <img src="../../assets/part3-bg.png" class="pos-a" style="left: -8vw; top: -12vw; z-index: 9" alt=""> -->
         <div class="flex gutter_col justify-between">
-          <div style="height: 16.5vw; width: 24vw" class="bg-gray-30 flex-0 mr-24 mt-16">
-          </div>
+          <!-- <div style="height: 16.5vw; width: 24vw" class="bg-gray-30 flex-0 mr-24 mt-16">
+          </div> -->
+          <img style="width: 24vw; height: 16.5vw; z-index: 2" src="../../assets/part3-gif.gif" alt="">
           <div class="color-white">
             <transition name='slideBottom'>
               <div v-show='data.show[0]' class="linear-color title-lg" style="margin-bottom: 4px">The first Betweb3 sports betting platform</div>

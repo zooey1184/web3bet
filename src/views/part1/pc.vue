@@ -33,7 +33,7 @@
           </div>
         </transition>
       </div>
-      <div  style="width: 25vw; height: 28vw; top: -5vw" class="pos-r overflow-hidden">
+      <div  style="width: 35vw; height: 28vw; top: 0" class="pos-r overflow-hidden">
         <MouseTrack>
           <FadeLogo />
         </MouseTrack>
