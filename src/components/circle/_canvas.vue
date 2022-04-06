@@ -1,7 +1,7 @@
 <template>
   <div class="pos-r">
     <div class="pos-a main-logo">
-      <img class="w-100p" src="../../assets/part6.png" />
+      <img class="w-100p" v-lazy='Logo' />
     </div>
     <canvas :width="canvasRadius" :height="canvasRadius" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" ref="canvas"></canvas>
   </div>
@@ -18,6 +18,7 @@ import C2_2 from '../../assets/c2-2.png'
 import C2_1 from '../../assets/c2-1.png'
 import C1_1 from '../../assets/c1-1.png'
 import C1_2 from '../../assets/c1-2.png'
+import Logo from '../../assets/part6.png'
 
 export default defineComponent({
   components: {
@@ -184,6 +185,7 @@ export default defineComponent({
     return {
       canvas,
       canvasRadius,
+      Logo,
       handleMouseEnter,
       handleMouseLeave
     };

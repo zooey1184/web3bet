@@ -3,8 +3,8 @@
     <div class="pos-a top-0 left-0">
       <Circle rotate='40' size='8.54vw' desc='2022Q2' @click='state.active = 0' :solid="state.active === 0">
         <div class="color-white flex justify-center h-95p items-center">
-          <img class="w-65p" src="../../../assets/2022q2.gif" v-if='state.active === 0' alt="">
-          <img class="w-70p " src="../../../assets/2022q2.jpg" v-if='state.active !== 0' alt="">
+          <img class="w-65p" v-lazy="q202" v-if='state.active === 0' alt="">
+          <img class="w-70p " v-lazy="q202_img" v-if='state.active !== 0' alt="">
           <!-- <div class="text-align-center mt-8 desc-item">
             2022Q2
           </div> -->
@@ -62,6 +62,8 @@
 <script>
 import { defineComponent, reactive, ref, watch } from 'vue'
 import Circle from '../circle'
+import q202 from '@/assets/2022q2.gif'
+import q202_img from '@/assets/2022q2.jpg'
 
 export default defineComponent({
   components: {
@@ -89,7 +91,9 @@ export default defineComponent({
     })
 
     return {
-      state
+      state,
+      q202,
+      q202_img
     }
   }
 })
