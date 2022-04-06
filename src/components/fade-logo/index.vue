@@ -8,7 +8,7 @@
     </transition>
   </div>
   <div v-if='disabled'>
-    <img class='w-100p pos-r' src="../../assets/part1-gif.gif" />
+    <img class='w-100p pos-r' src="../../assets/part1_gif.gif" />
   </div>
 </template>
 
@@ -22,7 +22,8 @@ export default defineComponent({
       type: Boolean,
     },
     disabled: {
-      type: Boolean
+      type: Boolean,
+      default: true
     }
   },
   setup(props) {
