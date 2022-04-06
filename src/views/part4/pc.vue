@@ -36,8 +36,8 @@
             </div>
           </transition>
         </div>
-        <div style="height: 16.5vw; width: 24vw" class="bg-gray-30">
-          <img src="../../assets/part4-gif.gif" class="w-100p" alt="">
+        <div style="height: 16.5vw; width: 24vw">
+          <img src="../../assets/part4_gif.gif" class="w-100p" alt="">
           </div>
       </div>
     </template>
