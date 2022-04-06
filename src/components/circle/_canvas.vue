@@ -1,7 +1,7 @@
 <template>
   <div class="pos-r">
     <div class="pos-a main-logo">
-      <FadeLogo useA />
+      <img class="w-100p" src="../../assets/part6.png" />
     </div>
     <canvas :width="canvasRadius" :height="canvasRadius" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" ref="canvas"></canvas>
   </div>
