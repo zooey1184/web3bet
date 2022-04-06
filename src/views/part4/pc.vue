@@ -37,7 +37,7 @@
           </transition>
         </div>
         <div style="height: 18vw; width: 26vw" class="pos-r flex-0">
-          <img v-lazy='Gif' class="gif-pane" alt="">
+          <img :src='Gif' class="gif-pane" alt="">
         </div>
       </div>
     </template>

@@ -5,7 +5,7 @@
         <img v-lazy='BgImg' class="pos-a" style="left: -8vw; top: -12vw; z-index: 9" alt="">
         <div class="flex gutter_col items-center justify-between">
           <div style="height: 18vw; width: 24vw" class="pos-r flex-0 mr-24 mt-16">
-            <img class="w-100p gif-pane" v-lazy='Gif' alt="">
+            <img class="w-100p gif-pane" :src='Gif' alt="">
           </div>
           
           <div class="color-white fle-1">

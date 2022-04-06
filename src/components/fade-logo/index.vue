@@ -8,7 +8,7 @@
     </transition>
   </div>
   <div v-if='disabled'>
-    <img class='w-100p pos-r' v-lazy='Logo' />
+    <img class='w-100p pos-r' :src='Logo' />
   </div>
 </template>
 
