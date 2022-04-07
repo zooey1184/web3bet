@@ -86,6 +86,11 @@ export default defineComponent({
     })
 
     const handleClickDown = () => {
+      if(state.step < 5) {
+        const c = clientRectRef.value
+        const rect = c.getBoundingClientRect()
+        state.step = rect.height + 20
+      }
       if (state.active < props.options.length - 1) {
         state.active++
       }
