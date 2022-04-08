@@ -68,8 +68,8 @@ export default defineComponent({
           y = my - rect.y
         }
         
-        state.x = x/50 > 30 ? 30 : x/50
-        state.y = y/50 > 30 ? 30 : y/50
+        state.x = x/20 > 60 ? 60 : x/20
+        state.y = y/20 > 60 ? 60 : y/20
       }
     }
     onMounted(() => {

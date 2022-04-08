@@ -3,22 +3,16 @@
     <div class="pos-a top-0 left-0">
       <Circle rotate='40' size='8.54vw' desc='2022Q2' @click='state.active = 0' :solid="state.active === 0">
         <div class="color-white flex justify-center h-95p items-center">
-          <img class="w-65p" v-lazy="q202" v-if='state.active === 0' alt="">
-          <img class="w-70p " v-lazy="q202_img" v-if='state.active !== 0' alt="">
-          <!-- <div class="text-align-center mt-8 desc-item">
-            2022Q2
-          </div> -->
+          <img class="w-65p" :src="q202" v-if='state.active === 0' alt="">
+          <img class="w-70p " :src="q202_img" v-if='state.active !== 0' alt="">
         </div>
       </Circle>
     </div>
     <div class="q3_2022">
       <Circle rotate='315' size='8.17vw' desc='2022Q3' @click='state.active = 1' :solid="state.active === 1">
         <div class="color-white p-8 flex justify-center items-center">
-          <img class="w-90p" style="margin-top: 4px" v-lazy='q3_2022_gif' v-if='state.active === 1' alt="">
-          <img class="w-90p" style="margin-top: 4px" v-lazy='q3_2022_jpg' v-if='state.active !== 1' alt="">
-          <!-- <div class="text-align-center mt-8 desc-item">
-            2022Q3
-          </div> -->
+          <img class="w-90p" style="margin-top: 4px" :src='q3_2022_gif' v-if='state.active === 1' alt="">
+          <img class="w-90p" style="margin-top: 4px" :src='q3_2022_jpg' v-if='state.active !== 1' alt="">
         </div>
       </Circle>
     </div>
@@ -26,10 +20,7 @@
       <Circle :showLine="false" size='7.8vw' desc='2022Q4' @click='state.active = 2' :solid="state.active === 2">
         <div class="color-white h-100p flex justify-center items-center">
           <img class="w-80p" v-if='state.active === 2' src="../../../assets/2022q4.gif" alt="">
-          <img class="w-80p" v-lazy='q4_2022_jpg' v-if='state.active !== 2' src="" alt="">
-          <!-- <div class="text-align-center mt-8 desc-item">
-            2022Q4
-          </div> -->
+          <img class="w-80p" :src='q4_2022_jpg' v-if='state.active !== 2' src="" alt="">
         </div>
       </Circle>
     </div>
@@ -37,11 +28,7 @@
       <Circle rotate='225' size='10.67vw'  desc='2023Q1' @click='state.active = 3' :solid="state.active === 3">
         <div class="color-white h-100p flex justify-center items-center">
           <img class="w-70p " v-if='state.active === 3' src="../../../assets/2023q1.gif" alt="">
-          <img class="w-70p " v-lazy='q1_2023_jpg' v-if='state.active !== 3' alt="">
-          
-          <!-- <div class="text-align-center mt-8 desc-item">
-            2023Q1
-          </div> -->
+          <img class="w-70p " :src='q1_2023_jpg' v-if='state.active !== 3' alt="">
         </div>
       </Circle>
     </div>
@@ -49,10 +36,7 @@
       <Circle :rotate="135" size='7.8vw'  desc='2023Q2'  @click='state.active = 4' :solid="state.active === 4">
         <div class="color-white h-100p flex justify-center items-center">
           <img class="w-80p" v-if='state.active === 4' src="../../../assets/2023q2.gif" alt="">
-          <img class="w-80p" v-if='state.active !== 4' v-lazy='q1_2023_jpg' alt="">
-          <!-- <div class="text-align-center mt-8 desc-item">
-            2023Q2
-          </div> -->
+          <img class="w-80p" v-if='state.active !== 4' :src='q1_2023_jpg' alt="">
         </div>
       </Circle>
     </div>

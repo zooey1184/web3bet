@@ -8,16 +8,19 @@
     </transition>
   </div>
   <div v-if='disabled'>
-    <img class='w-100p pos-r' :src='Logo' />
+    <LazyImg class='pos-r' :src='Logo' />
   </div>
 </template>
 
 <script>
 import { defineComponent, onMounted, reactive, ref, nextTick, watch } from 'vue'
 import Logo from '../../assets/part1_gif.gif'
+import LazyImg from '@/components/lazy-img'
 
 export default defineComponent({
-  components: {},
+  components: {
+    LazyImg
+  },
   props: {
     useA: {
       type: Boolean,

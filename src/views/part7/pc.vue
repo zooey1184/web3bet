@@ -7,7 +7,7 @@
           <img class="w-100p coin-img" src="../../assets/part7_2.png" alt="">
           <img class="w-100p" src="../../assets/part7_1.jpg" alt="">
         </div>
-        <div>
+        <div style="min-height: 44vh">
           <div class="title-lg linear-color inline-block">Token Economics  Multi-chain Technology and Scaling</div>
           <!-- <div class="mt-8 subTitle">Web3bet 正在扩展以将体育投注体验带到所有兼容的网络  Tokenomics</div> -->
           <div class="flex mt-24">

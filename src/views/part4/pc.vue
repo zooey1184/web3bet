@@ -3,7 +3,7 @@
     <template #default='data'>
       <div class="flex gutter_col items-center justify-between">
       
-        <div class="color-white" style='width: 50%'>
+        <div class="color-white" style='width: 50%; min-height: 60vh'>
           <transition name='slideBottom'>
             <div v-show='data.show[0]' style="margin-bottom: 36px" class="linear-color title-lg">The core process of smart contract execution</div>
           </transition>
@@ -37,7 +37,7 @@
           </transition>
         </div>
         <div style="height: 18vw; width: 26vw" class="pos-r flex-0">
-          <img :src='Gif' class="gif-pane" alt="">
+          <LazyImg :src='Gif' class="gif-pane" alt="" />
         </div>
       </div>
     </template>
@@ -49,11 +49,13 @@ import { defineComponent, ref } from 'vue'
 import Wrap from '@/components/wrap'
 import MouseTrack from '@/components/mouse-track'
 import Gif from '../../assets/part4_gif.gif'
+import LazyImg from '@/components/lazy-img'
 
 export default defineComponent({
   components: {
     Wrap,
-    MouseTrack
+    MouseTrack,
+    LazyImg
   },
   props: {},
   setup(props) {

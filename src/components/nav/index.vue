@@ -15,7 +15,7 @@
         <div class="m_item" @click="handleClickMenuItem(item.value)" :class="{'primary': state.active === item.value}" v-for='item in options'>{{item.label}}</div>
 
         <div class="mt-40">
-          <LinearBox v-for='item in btnList' class="mb-16">
+          <LinearBox v-for='item in btnList' class="mb-32">
             <div class="primary m_btn_px ">{{item.label}}</div>
           </LinearBox>
           <div class="linear-bg m_btn_px" style="border-radius: 2px">{{launch}}</div>

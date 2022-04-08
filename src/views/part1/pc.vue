@@ -2,7 +2,10 @@
 <Wrap>
   <template #default='data'>
     <div style="padding-top: 10vw; min-height: 85vh" class="box flex color-white justify-between">
-      <img v-lazy='BgImg' class="bg_img" alt="">
+      <MouseTrack>
+        <img v-lazy='BgImg' class="bg_img" alt="">
+      </MouseTrack>
+      
       <div style="z-index: 9; width: 48vw">
         <transition name='fade'>
           <div class="title-md" v-show='data.show[0]'>The first Betweb3.0  
@@ -33,11 +36,8 @@
           </div>
         </transition>
       </div>
-      <div  style="width: 25vw; height: 28vw; top: 0" class="pos-r overflow-hidden">
-        <MouseTrack>
-          <FadeLogo />
-        </MouseTrack>
-      
+      <div style="width: 25vw; height: 28vw; top: 0" class="pos-r overflow-hidden">
+        <FadeLogo />
       </div>
     </div>
   </template>

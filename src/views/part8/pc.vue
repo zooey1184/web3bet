@@ -3,7 +3,10 @@
     <template #default='data'>
       <div class="mb-48 pos-r">
         <img v-lazy='BgImg1' class="abs-bg1" alt="">
-        <img v-lazy='BgImg2' class="abs-bg2" alt="">
+        <div class="abs-bg2">
+          <MouseTrack><img v-lazy='BgImg2' class="w-100p" alt=""></MouseTrack>
+        </div>
+        
         <div style="margin-bottom: 26px" class="inline-block linear-color title-lg">Road map</div>
         <div class="subTitle"  style="margin-bottom: 63px">We are also working on ex、panding the Web3bet ecosystem.Stay tuned…</div>
         <div class="flex items-center justify-around">
@@ -31,12 +34,14 @@ import CircleMap from './circle-map'
 import Wrap from '@/components/wrap'
 import BgImg1 from '../../assets/part8-bg1.png'
 import BgImg2 from '../../assets/part8-bg2.png'
+import MouseTrack from '@/components/mouse-track'
 
 export default defineComponent({
   components: {
     Steps,
     CircleMap,
-    Wrap
+    Wrap,
+    MouseTrack
   },
   props: {},
   setup(props) {
