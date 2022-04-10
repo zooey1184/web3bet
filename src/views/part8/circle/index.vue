@@ -1,12 +1,13 @@
 <template>
   <div class="pos-r" @click="handleClick">
-    <div class="circle bg z-index-9" :style="{width: getSize, height: getSize}" :class="{active: solid}">
-      <img class="w-100p" v-if='!solid' src="../../../assets/circle-dashed.png" alt="">
-      <img class="w-100p active" v-else src="../../../assets/circled.png" alt="">
+    <div class="circle  cursor-pointer bg z-index-9" :style="{width: getSize, height: getSize}" :class="{active: solid}">
+      
       <div class="description" v-if='desc'>{{desc}}</div>
       <div class="content">
         <slot></slot>
       </div>
+      <img class="w-100p" v-if='!solid' src="../../../assets/circle-dashed.png" alt="">
+      <img class="w-100p active" v-else src="../../../assets/circled.png" alt="">
     </div>
     <div class="dashed pos-a " :style="{transform: `rotateZ(${rotate}deg)`, width: getSize,}" v-if='showLine'>
       <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -44,7 +45,7 @@ export default defineComponent({
       default: 200
     },
     rotate: {
-      type: Number,
+      type: [Number, String],
       default: 50
     },
     showLine: {
@@ -83,6 +84,7 @@ export default defineComponent({
   position: relative;
   border-radius: 10000px;
   overflow: hidden;
+  
   &:hover {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     .description {
@@ -100,10 +102,10 @@ export default defineComponent({
 }
 .content {
   position: absolute;
-  width: 94%;
-  left: 3%;
-  top: 3%;
-  height: 94%;
+  width: 90%;
+  left: 5%;
+  top: 5%;
+  height: 90%;
   overflow: hidden;
 }
 .active {

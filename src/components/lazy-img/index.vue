@@ -1,10 +1,12 @@
 <template>
-  <transition name="fade">
-    <img v-if='state.visible' class="w-100p" :src='src' alt="" />
-  </transition>
-  <transition name="fade">
-    <img v-if='state.coverVisible && cover' class="w-100p" :src='cover' alt="" />
-  </transition>
+  <div>
+    <transition name="fade">
+      <img v-if='state.visible' class="w-100p" :src='src' alt="" />
+    </transition>
+    <transition name="fade">
+      <img v-if='state.coverVisible && cover' class="w-100p" :src='cover' alt="" />
+    </transition>
+  </div>
 </template>
 
 <script>

@@ -7,34 +7,26 @@
       </MouseTrack>
       
       <div style="z-index: 9; width: 48vw">
-        <transition name='fade'>
-          <div class="title-md" v-show='data.show[0]'>The first Betweb3.0  
-            <div class="title-md">
-              Sports betting platform to achieve decentralized
-              <span class="title-md linear-color">sports betting on the blockchain</span>
-            </div>
+        <div class="title-md fade-left" :class="{'fade-right': data.show[0]}">The first Betweb3.0  
+          <div class="title-md">
+            Sports betting platform to achieve decentralized
+            <span class="title-md linear-color">sports betting on the blockchain</span>
           </div>
-        </transition>
+        </div>
 
         <div style="margin-top: 4vw">
-          <transition name='slideLeft'>
-            <div v-show='data.show[1]' class="linear-bg inline-block launch_btn launch_btn_act">Launch APP</div>
-          </transition>
+          <div :class="{'fade-right': data.show[1]}" class="fade-left linear-bg inline-block launch_btn launch_btn_act">Launch APP</div>
         </div>
         <div style="margin-top: 0.5vw">
-          <transition name='slideLeft'>
-            <div v-show='data.show[2]' class="color-blue inline-block launch_btn">No sign-up required</div>
-          </transition>
+          <div :class="{'fade-right': data.show[2]}" class="fade-left color-blue inline-block launch_btn">No sign-up required</div>
         </div>
-        <transition name='slideLeft'>
-          <div v-show='data.show[3]' class="flex mt-24 items-center">
-            <div class="gray desc">Audited by</div>
-            <div class="mx-16">
-              <img v-lazy='Logo' class="logo" alt="">
-            </div>
-            <div class="link desc">and more</div>
+        <div :class="{'fade-right': data.show[3]}" class="fade-left flex mt-24 items-center">
+          <div class="gray desc">Audited by</div>
+          <div class="mx-16">
+            <img :src='Logo' class="logo" alt="">
           </div>
-        </transition>
+          <div class="link desc">and more</div>
+        </div>
       </div>
       <div style="width: 25vw; height: 28vw; top: 0" class="pos-r overflow-hidden">
         <FadeLogo />

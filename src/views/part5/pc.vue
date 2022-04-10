@@ -3,22 +3,17 @@
     <template #default='data'>
       <div class="gutter_col flex justify-between pos-r">
         <img :src='BgImg' class='abs-bg' alt="">
-        <transition name='slideLeft'>
-          <div v-show='data.show[1]' style="width: 40%; padding-top: 11vh">
-            <Steps :options="options" />
-          </div>
-        </transition>
+        <div :class="{'slidein-right': data.show[1]}" class="slideout-left" style="width: 40%; padding-top: 11vh">
+          <Steps :options="options" />
+        </div>
         
-        <transition name='slideRight'>
-          <div v-show='data.show[1]' style='width: 50%'>
-            <div class="linear-color title-lg inline-block">Easy to use product</div>
-            <div class="mt-24 desc">Betweb3 uses blockchain technology to restore and optimize the interactive experience of traditional sports betting platforms for ease of use</div>
-            <div class="flex justify-end" style="margin-top: 10vh">
-              <div style="height: 16.5vw; width: 24vw" class="bg-gray-30">
-            </div>
-            </div>
+        <div  :class="{'slidein-left': data.show[1]}" class="slideout-right" style='width: 50%'>
+          <div class="linear-color title-lg inline-block">Easy to use product</div>
+          <div class="mt-24 desc">Betweb3 uses blockchain technology to restore and optimize the interactive experience of traditional sports betting platforms for ease of use</div>
+          <div class="flex justify-end" style="margin-top: 10vh">
+            <div style="height: 16.5vw; width: 24vw" class="bg-gray-30"></div>
           </div>
-        </transition>
+        </div>
       </div>
     </template>
   </Wrap>

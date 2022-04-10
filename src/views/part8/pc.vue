@@ -8,18 +8,14 @@
         </div>
         
         <div style="margin-bottom: 26px" class="inline-block linear-color title-lg">Road map</div>
-        <div class="subTitle"  style="margin-bottom: 63px">We are also working on ex、panding the Web3bet ecosystem.Stay tuned…</div>
+        <div class="subTitle"  style="margin-bottom: 12vh">We are also working on ex、panding the Web3bet ecosystem.Stay tuned…</div>
         <div class="flex items-center justify-around">
-          <transition name="slideLeft">
-            <div style="width: 35%;">
-              <Steps :options="options" v-model:active='state.active' />
-            </div>
-          </transition>
-          <transition name="slideRight">
-            <div>
-              <CircleMap v-model:active='state.active' />
-            </div>
-          </transition>
+          <div class="slideout-left" style="width: 47%;" :class="{'slidein-right': data.show[0]}">
+            <Steps align="around" :options="options" v-model:active='state.active' />
+          </div>
+          <div class="slideout-right" :class="{'slidein-left': data.show[0]}">
+            <CircleMap v-model:active='state.active' />
+          </div>
         </div>
       </div>
     </template>
@@ -29,7 +25,7 @@
 
 <script>
 import { defineComponent, reactive, ref } from 'vue'
-import Steps from '../../components/steps'
+import Steps from '../../components/steps/steps.vue'
 import CircleMap from './circle-map'
 import Wrap from '@/components/wrap'
 import BgImg1 from '../../assets/part8-bg1.png'

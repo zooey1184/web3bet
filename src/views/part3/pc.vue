@@ -10,47 +10,34 @@
           </div>
           
           
-          <Pane>
-            <template #default='rect'>
-              <div class="color-white fle-1">
-                <transition name='slideBottom'>
-                  <div class="linear-color title-lg" style="margin-bottom: 4px">The first Betweb3 sports betting platform</div>
-                </transition>
-                <transition name='slideBottom'>
-                  <div v-show='data.show[1]' class="subTitle font-weight-600 mt-48 mb-32">USDT decentralized capital pool</div>
-                </transition>
-              
-                <transition name='slideBottom'>
-                  <div v-show='data.show[2]' class="grey" style="margin-top: 6px; margin-bottom: 55px">
-                    <div >The essence of the traditional sports betting platform is that the platform itself endorses the platform itself to make payment for the user's wins and losses. </div>
-                    <div>Betweb3 adopts the concept of decentralization and builds a completely decentralized capital pool to undertake the user's payment problem.</div>
-                  </div>
-                </transition>
-                <transition name='slideBottom'>
-                  <div class="item" v-show='data.show[3]'>
-                    <div>
-                      <img v-lazy='Icon1' alt="">
-                    </div>
-                    <p style='margin-left: 13px'>Destruction of the ownership of the capital pool</p>
-                  </div>
-                </transition>
-                <transition name='slideBottom'>
-                  <div class="item" v-show='data.show[4]'>
-                    <div>
-                      <img v-lazy='Icon2' alt="">
-                    </div>
-                    <p style='margin-left: 13px'>60% of each profit is distributed to token holders, 10% is automatically repurchased destroyed token, and 30% remains in the capital pool</p>
-                  </div>
-                </transition>
-                <transition name='slideBottom'>
-                  <div class="flex items-center" v-show='data.show[5]'>
-                    <div><img v-lazy='Icon3' alt=""></div>
-                    <p style='margin-left: 13px'>Amount and profit are completely transparent</p>
-                  </div>
-                </transition>
+          <div class="color-white fle-1">
+            <div class="linear-color title-lg fadeout" :class="{fadein: data.show[0]}" style="margin-bottom: 4px">The first Betweb3 sports betting platform</div>
+            <div :class="{fadein: data.show[1]}" class="fadeout subTitle font-weight-600 mt-48 mb-32">USDT decentralized capital pool</div>
+          
+            <div :class="{fadein: data.show[2]}" class="fadeout grey" style="margin-top: 6px; margin-bottom: 55px">
+              <div >The essence of the traditional sports betting platform is that the platform itself endorses the platform itself to make payment for the user's wins and losses. </div>
+              <div>Betweb3 adopts the concept of decentralization and builds a completely decentralized capital pool to undertake the user's payment problem.</div>
+            </div>
+
+            <div class="item fadeout"  :class="{fadein: data.show[3]}">
+              <div>
+                <img v-lazy='Icon1' alt="">
               </div>
-            </template>
-          </Pane>
+              <p style='margin-left: 13px'>Destruction of the ownership of the capital pool</p>
+            </div>
+
+            <div class="item fadeout" :class="{fadein: data.show[4]}">
+              <div>
+                <img v-lazy='Icon2' alt="">
+              </div>
+              <p style='margin-left: 13px'>60% of each profit is distributed to token holders, 10% is automatically repurchased destroyed token, and 30% remains in the capital pool</p>
+            </div>
+
+            <div class="flex items-center fadeout" :class="{fadein: data.show[5]}">
+              <div><img v-lazy='Icon3' alt=""></div>
+              <p style='margin-left: 13px'>Amount and profit are completely transparent</p>
+            </div>
+          </div>
         </div>
       </div>
     </template>

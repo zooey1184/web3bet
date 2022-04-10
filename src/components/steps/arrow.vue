@@ -1,9 +1,9 @@
 <template>
   <div class="arrow">
-    <img class="w-100p" v-if='!disabled && dir==="down"' src="../../assets/arrow-active.png" alt="">
-    <img class="w-100p rotate" v-if='!disabled && dir==="up"' src="../../assets/arrow-active.png" alt="">
-    <img class="w-100p" v-if='disabled && dir==="up"' src="../../assets/arrow-disabled.png" alt="">
-    <img class="w-100p rotate" v-if='disabled && dir==="down"' src="../../assets/arrow-disabled.png" alt="">
+    <img class="w-100p cursor-pointer" v-if='!disabled && dir==="down"' src="../../assets/arrow-active.png" alt="">
+    <img class="w-100p rotate cursor-pointer" v-if='!disabled && dir==="up"' src="../../assets/arrow-active.png" alt="">
+    <img class="w-100p cursor-pointer" v-if='disabled && dir==="up"' src="../../assets/arrow-disabled.png" alt="">
+    <img class="w-100p rotate cursor-pointer" v-if='disabled && dir==="down"' src="../../assets/arrow-disabled.png" alt="">
     
   </div>
 </template>

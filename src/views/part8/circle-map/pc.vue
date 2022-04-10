@@ -18,9 +18,9 @@
     </div>
     <div class="q4_2022">
       <Circle :showLine="false" size='7.8vw' desc='2022Q4' @click='state.active = 2' :solid="state.active === 2">
-        <div class="color-white h-100p flex justify-center items-center">
-          <img class="w-80p" v-if='state.active === 2' src="../../../assets/2022q4.gif" alt="">
-          <img class="w-80p" :src='q4_2022_jpg' v-if='state.active !== 2' src="" alt="">
+        <div class="color-white h-100p flex flex-col justify-center items-center">
+          <img class="w-70p" v-if='state.active === 2' src="../../../assets/2022q4.gif" alt="">
+          <img class="w-70p" :src='q4_2022_jpg' v-if='state.active !== 2' src="" alt="">
         </div>
       </Circle>
     </div>
