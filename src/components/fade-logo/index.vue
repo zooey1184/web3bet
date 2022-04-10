@@ -1,12 +1,12 @@
 <template>
-  <div v-if='useA && !disabled'>
+  <!-- <div v-if='useA && !disabled'>
     <img class='w-100p pos-r img-animat' src="../../assets/part1-gif.gif" />
   </div>
   <div v-if='!useA && !disabled'>
     <transition name='fade'>
       <img v-show='state.visible' class='w-100p pos-r' src="../../assets/part1-gif.gif" />
     </transition>
-  </div>
+  </div> -->
   <div v-if='disabled'>
     <LazyImg class='pos-r' :src='Logo' :cover='Part1Cover' />
   </div>
