@@ -8,7 +8,7 @@
     </transition>
   </div>
   <div v-if='disabled'>
-    <LazyImg class='pos-r' :src='Logo' />
+    <LazyImg class='pos-r' :src='Logo' :cover='Part1Cover' />
   </div>
 </template>
 
@@ -16,6 +16,7 @@
 import { defineComponent, onMounted, reactive, ref, nextTick, watch } from 'vue'
 import Logo from '../../assets/part1_gif.gif'
 import LazyImg from '@/components/lazy-img'
+import Part1Cover from '../../assets/part1_cover.jpg'
 
 export default defineComponent({
   components: {
@@ -59,7 +60,8 @@ export default defineComponent({
 
     return {
       state,
-      Logo
+      Logo,
+      Part1Cover
     }
   }
 })

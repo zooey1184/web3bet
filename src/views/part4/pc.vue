@@ -37,7 +37,7 @@
           </transition>
         </div>
         <div style="height: 18vw; width: 26vw" class="pos-r flex-0">
-          <LazyImg :src='Gif' class="gif-pane" alt="" />
+          <LazyImg :src='Gif' :cover='Part4Cover' class="gif-pane" alt="" />
         </div>
       </div>
     </template>
@@ -50,6 +50,7 @@ import Wrap from '@/components/wrap'
 import MouseTrack from '@/components/mouse-track'
 import Gif from '../../assets/part4_gif.gif'
 import LazyImg from '@/components/lazy-img'
+import Part4Cover from '../../assets/part4_cover.jpg'
 
 export default defineComponent({
   components: {
@@ -60,7 +61,8 @@ export default defineComponent({
   props: {},
   setup(props) {
     return {
-      Gif
+      Gif,
+      Part4Cover
     }
   }
 })
