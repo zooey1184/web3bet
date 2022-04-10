@@ -104,6 +104,7 @@ export default defineComponent({
   left: 3%;
   top: 3%;
   height: 94%;
+  overflow: hidden;
 }
 .active {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);

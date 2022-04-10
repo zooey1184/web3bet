@@ -10,9 +10,9 @@
     </div>
     <div class="q3_2022">
       <Circle rotate='315' size='8.17vw' desc='2022Q3' @click='state.active = 1' :solid="state.active === 1">
-        <div class="color-white p-8 flex justify-center items-center">
-          <img class="w-90p" style="margin-top: 4px" :src='q3_2022_gif' v-if='state.active === 1' alt="">
-          <img class="w-90p" style="margin-top: 4px" :src='q3_2022_jpg' v-if='state.active !== 1' alt="">
+        <div class="color-white overflow-hidden flex flex-col justify-center items-center h-100p" style="border-radius: 10px">
+          <img class="w-80p" :src='q3_2022_gif' v-if='state.active === 1' alt="">
+          <img class="w-80p" :src='q3_2022_jpg' v-if='state.active !== 1' alt="">
         </div>
       </Circle>
     </div>
@@ -36,7 +36,7 @@
       <Circle :rotate="135" size='7.8vw'  desc='2023Q2'  @click='state.active = 4' :solid="state.active === 4">
         <div class="color-white h-100p flex justify-center items-center">
           <img class="w-80p" v-if='state.active === 4' src="../../../assets/2023q2.gif" alt="">
-          <img class="w-80p" v-if='state.active !== 4' :src='q1_2023_jpg' alt="">
+          <img class="w-80p" v-if='state.active !== 4' :src='q2_2023_jpg' alt="">
         </div>
       </Circle>
     </div>
