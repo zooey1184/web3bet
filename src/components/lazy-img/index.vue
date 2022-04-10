@@ -3,9 +3,7 @@
     <transition name="fade">
       <img v-if='state.visible' class="w-100p" :src='src' alt="" />
     </transition>
-    <transition name="fade">
-      <img v-if='state.coverVisible && cover' class="w-100p" :src='cover' alt="" />
-    </transition>
+    <img v-if='state.coverVisible && cover' class="w-100p" :src='cover' alt="" />
   </div>
 </template>
 
@@ -42,7 +40,7 @@ export default defineComponent({
             state.coverVisible = false
             setTimeout(() => {
               state.visible = true
-            }, 300)
+            }, 200)
           })
         })
       }

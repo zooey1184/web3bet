@@ -206,7 +206,7 @@ export default defineComponent({
     width: 7px;
     height: 7px;
     border-radius: 7px;
-    background: #fff;
+    background: rgb(53, 53, 53);
     top: 8px;
     right: 0;
   }
@@ -219,12 +219,10 @@ export default defineComponent({
 }
 
 .content-pane {
-  color: #999;
+  color: #333;
   min-height: 15vh;
   padding: 24px;
-  border-radius: 16px;
-  background: var(--bg);
-  box-shadow:  10px 10px 22px #222222,
-              -10px -10px 22px #303030;
+  border-radius: 34px;
+  background: linear-gradient(145deg, #d9d8dc, #ffffff);
 }
 </style>
