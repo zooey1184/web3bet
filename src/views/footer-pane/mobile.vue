@@ -10,8 +10,13 @@
     </div>
     <div class="flex items-center">
       <div class="flex items-center">
-        <img class="icon" src="../../assets/icon-t.png" alt="">
-        <img class="icon" src="../../assets/icon-m.png" alt="">
+        <a href='https://twitter.com/BetWeb3' target='_blank'>
+          <img class="icon cursor-pointer" src='../../assets/icon-t.png' alt="">
+        </a>
+        <a href='https://medium.com/@betweb3official' target='_blank'>
+          <img class="icon" src='../../assets/icon-m.png' alt="">
+        </a>
+        
         <img class="icon" src="../../assets/icon-discord.png" alt="">
         <img class="icon" src="../../assets/icon-g.png" alt="">
       </div>

@@ -12,7 +12,7 @@
         </div>
         
         <div style="height: 34vw" class="bg-gray-20 mt-48 flex items-center justify-center">
-          视频
+          Video
         </div>
       </div>
     </template>

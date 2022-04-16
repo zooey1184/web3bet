@@ -8,10 +8,15 @@
     </div>
     <div class="flex items-center">
       <div class="flex items-center">
-        <img class="icon" v-lazy='Icon_t' alt="">
-        <img class="icon" v-lazy='Icon_m' alt="">
-        <img class="icon" v-lazy='Icon_d' alt="">
-        <img class="icon" v-lazy='Icon_g' alt="">
+        <a href='https://twitter.com/BetWeb3' target='_blank'>
+          <img class="icon cursor-pointer" src='../../assets/icon-t.png' alt="">
+        </a>
+        <a href='https://medium.com/@betweb3official' target='_blank'>
+          <img class="icon cursor-pointer" src='../../assets/icon-m.png' alt="">
+        </a>
+        
+        <img class="icon cursor-pointer" src="../../assets/icon-discord.png" alt="">
+        <img class="icon cursor-pointer" src="../../assets/icon-g.png" alt="">
       </div>
       <div class="text cursor-pointer link">Disclaimers</div>
     </div>
